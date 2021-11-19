@@ -3,9 +3,6 @@ import time
 import datetime
 import shutil
 import os
-import sounddevice as sd
-import speech_recognition as sr
-from scipy.io.wavfile import write
 
 camera = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
