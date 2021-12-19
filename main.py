@@ -42,10 +42,10 @@ while True:
             current_time = datetime.datetime.now().strftime("%d-%m-%Y-%I-%M-%S")
             send_sms(msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {current_time.replace('-',':')}. Please look it into the matter ASAP.")
 
-            cv2.imwrite(f"{current_time}.jpg", frame)
-            cv2.imshow("Frame",frame)
+            cv2.imwrite(f"{current_time}_start.jpg", frame)
+            # cv2.imshow("START Frame",frame)
 
-            send_email(filename=f"{current_time}.jpg")
+            send_email(filename=f"{current_time}_start.jpg")
 
             out = cv2.VideoWriter(f"{current_time}.mp4",fourcc,20,frame_size)
 
@@ -58,6 +58,7 @@ while True:
             if time.time() - detection_stopped_time >= SECONDS_TO_RECORD_AFTER_DETECTION:
                 detection = False
                 timer_started = False
+
                 out.release()
 
                 print("Stoped Recording!")
