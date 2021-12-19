@@ -39,7 +39,7 @@ while True:
             # If no person had been detected, but now has been
             detection = True
             current_time = datetime.datetime.now().strftime("%d-%m-%Y-%I-%M-%S")
-            send_sms(msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {datetime.datetime.now()}. Please look it into the matter ASAP.")
+            send_sms(msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {current_time.replace('-',':')}. Please look it into the matter ASAP.")
 
             cv2.imwrite(f"{current_time}.jpg", frame)
             cv2.imshow("Frame",frame)
