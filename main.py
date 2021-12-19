@@ -3,7 +3,6 @@ import time
 import datetime
 import shutil
 import os
-from scipy.io.wavfile import write
 
 os.chdir(r"C:\Users\sanja\Desktop\Coding\Python\Projects\Security Camera\main.py")
 
