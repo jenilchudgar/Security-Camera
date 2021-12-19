@@ -25,6 +25,8 @@ def transfer_files_to_recordings_folder():
     for file in files:
         if file.endswith(".mp4"):
             shutil.move(file,"Videos")
+        if file.endswith(".jpg"):
+            shutil.move(file,"Images")
 while True:
     _,frame = camera.read()
 
