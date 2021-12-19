@@ -42,10 +42,14 @@ while True:
             current_time = datetime.datetime.now().strftime("%d-%m-%Y-%I-%M-%S")
             send_sms(msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {current_time.replace('-',':')}. Please look it into the matter ASAP.")
 
+            print("SMS Sent")
+
             cv2.imwrite(f"{current_time}_start.jpg", frame)
             # cv2.imshow("START Frame",frame)
 
             send_email(filename=f"{current_time}_start.jpg")
+
+            print("Email Sent")
 
             out = cv2.VideoWriter(f"{current_time}.mp4",fourcc,20,frame_size)
 
