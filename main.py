@@ -3,6 +3,7 @@ import time
 import datetime
 import shutil
 import os
+from send_email import send_email
 from send_sms import send_sms
 
 os.chdir("C:\\Users\\sanja\\Desktop\\Coding\\Python\\Projects\\Security Camera")
@@ -43,6 +44,8 @@ while True:
 
             cv2.imwrite(f"{current_time}.jpg", frame)
             cv2.imshow("Frame",frame)
+
+            send_email(filename=f"{current_time}.jpg")
 
             out = cv2.VideoWriter(f"{current_time}.mp4",fourcc,20,frame_size)
 
