@@ -6,8 +6,6 @@ import os
 from send_email import send_email
 from send_sms import send_sms
 
-os.chdir("C:\\Users\\sanja\\Desktop\\Coding\\Python\\Projects\\Security Camera")
-
 camera = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 full_body_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_fullbody.xml")
@@ -32,8 +30,8 @@ while True:
     _,frame = camera.read()
 
     gray_img = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
-    bodies = full_body_cascade.detectMultiScale(gray_img, 1.3, 5)
+    faces = face_cascade.detectMultiScale(gray_img, 1.4, 5)
+    bodies = full_body_cascade.detectMultiScale(gray_img, 1.4, 5)
 
     if len(faces) + len(bodies) > 0:
         if detection:
@@ -43,7 +41,7 @@ while True:
             # If no person had been detected, but now has been
             detection = True
             current_time = datetime.datetime.now().strftime("%d-%m-%Y-%I-%M-%S")
-            send_sms(msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {current_time.replace('-',':')}. Please look it into the matter ASAP.")
+            send_sms(API_KEY="",msg=f"⚠️⚠️  IMPORTANT!  ⚠️⚠️\nA person has detected at {current_time.replace('-',':')}. Please look it into the matter ASAP.")
 
             print("SMS Sent")
 

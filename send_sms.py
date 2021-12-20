@@ -22,5 +22,4 @@ def send_sms(API_KEY:str="rVOosFCw6bx5fBLXQeDdjm9T7Kn2NAJqpPHZUMtY3vScRh0EGWA8Cl
         headers=headers, 
         params=querystring
     )
-
     return response.text
